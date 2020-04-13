@@ -1,0 +1,176 @@
+!DOCTYPE html>
+<style>
+
+#calcolatrice {
+    width:200px;
+}
+
+button.cifra {
+
+float: left;
+width: 25%;
+background-color: black;
+color: blanchedalmond;
+}
+
+#zero {
+width: 50%;
+
+}
+
+button.operazioni {
+
+background-color: orangered;
+  
+float: left;
+width: 25%;
+}
+
+button.operazione {
+
+background-color: gray;
+float: left;
+width: 25%;
+}
+
+#risultato {
+
+background-color: white;
+float: left;
+width: 100%;
+height: 20px;
+text-align: right;
+color: black;
+}
+
+
+
+</style>
+
+
+
+
+<div id="calcolatrice">
+    <div id="risultato">0</div>
+    <button id="cancella" class="operazione" onclick="ac()">AC</botton>
+    <button id="frazione" class="operazione" onclick="piumeno()">+/-</botton>
+    <button id="percentuale" class="operazione" onclick="percentuale()">%</botton>
+    <button id="divisione" class="operazioni" onclick="divide()">/</button>
+    <button id="sette" class="cifra" onclick="pulsante(this)">7</button>
+    <button id="otto" class="cifra" onclick="pulsante(this)">8</button>
+    <button id="nove" class="cifra" onclick="pulsante(this)">9</button>
+    <button id="*" class="operazioni" onclick="times()">*</button>
+    <button id="quattro" class="cifra" onclick="pulsante(this)">4</button>
+    <button id="cinque" class="cifra" onclick= "pulsante(this)">5</button>
+    <button id="sei" class="cifra" onclick="pulsante(this)">6</button>
+    <button id="-" class="operazioni" onclick="minus()">-</button>
+    <button id="uno" class="cifra" onclick="pulsante(this)">1</button>
+    <button id="due" class="cifra" onclick="pulsante(this)">2</button>
+    <button id="tre" class="cifra" onclick="pulsante(this)">3</button>
+    <button id="+" class="operazioni" onclick="plus()">+</button>
+    <button id="zero" class="cifra" onclick="pulsante(this)">0</button>
+    <button id="virgola" class="cifra" onclick="virgola()">.</button>
+    <button id="uguale" class="operazioni" onclick="uguale()">=</button>
+    <div style="clear: left;"></div>
+    
+</div>
+
+
+
+<script>
+    var op=false
+    var nuovo_numero=true
+    var memoria=null
+    var risultato= document.getElementById("risultato");
+    
+
+function pulsante(cifra){
+   
+    if (nuovo_numero) {
+        risultato.innerHTML=cifra.innerHTML
+        nuovo_numero=false
+  } else {
+    risultato.innerHTML += cifra.innerHTML
+    
+  }
+  
+}
+
+function ac(){
+
+    risultato.innerHTML="0"
+    nuovo_numero=true 
+    memoria=null
+} 
+
+ function piumeno(){
+    risultato.innerHTML=-parseFloat(risultato.innerHTML)
+
+ }
+
+ function plus(){
+    memoria = uguale()
+    op="+"
+    nuovo_numero=true
+ }
+
+
+
+function minus(){
+    memoria = uguale()
+    op="-"
+    nuovo_numero=true
+ }
+
+ function times(){
+    memoria = uguale()
+    op="*"
+    nuovo_numero=true
+ }
+
+ function percentuale(){
+    risultato.innerHTML = parseFloat(risultato.innerHTML) / 100
+    op="%"
+    nuovo_numero=false
+
+ }
+
+ function divide(){
+    memoria = uguale()
+    op="/"
+    nuovo_numero=true
+ }
+
+function virgola(){
+    if (risultato.innerHTML.indexOf('.')==-1){   
+        risultato.innerHTML += '.'  
+    }
+    nuovo_numero=false
+}
+
+
+function uguale() {
+    var ris
+    if (!memoria){
+        ris=parseFloat(risultato.innerHTML)
+    }
+    if (op=="+"){
+        ris = memoria+parseFloat(risultato.innerHTML)
+    }
+    if (op=="-"){
+       ris = memoria-parseFloat(risultato.innerHTML)
+    }
+    if (op=="*"){
+       ris = memoria*parseFloat(risultato.innerHTML)
+    }
+    if (op=="/"){
+       ris = memoria/parseFloat(risultato.innerHTML)
+    }
+
+    memoria=null
+    op= null
+    risultato.innerHTML = ris
+    return ris
+}
+    
+</script> 
