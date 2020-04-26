@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta name="viewport" content="initial-scale=1, viewport-fit=cover">
 <style>
 
 h1 span {
@@ -11,11 +12,11 @@ h1 span {
     height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
 }
 
-button {
+.elemento {
     float: left;
-    width: 25%;
     height: 25%;
-    font-size:1em;
+    font-size:3em;
+    width: 25%;
 }
 
 button.cifra {
@@ -37,12 +38,9 @@ button.operazione {
 
 #risultato {
     background-color: white;
-    float: left;
     width: 100%;
-    height: 25%;
     text-align: right;
     color: black;
-    font-size: 1em;
 }
 
 
@@ -52,26 +50,26 @@ button.operazione {
 <h1>Calcolatrice <span>by Francesco</span></h1>
 
 <div id="calcolatrice">
-    <div id="risultato">0</div>
-    <button id="cancella" class="operazione" onclick="ac()">AC</botton>
-    <button id="frazione" class="operazione" onclick="piumeno()">+/-</botton>
-    <button id="percentuale" class="operazione" onclick="percentuale()">%</botton>
-    <button id="divisione" class="operazioni" onclick="divide()">/</button>
-    <button id="sette" class="cifra" onclick="pulsante(this)">7</button>
-    <button id="otto" class="cifra" onclick="pulsante(this)">8</button>
-    <button id="nove" class="cifra" onclick="pulsante(this)">9</button>
-    <button id="*" class="operazioni" onclick="times()">*</button>
-    <button id="quattro" class="cifra" onclick="pulsante(this)">4</button>
-    <button id="cinque" class="cifra" onclick= "pulsante(this)">5</button>
-    <button id="sei" class="cifra" onclick="pulsante(this)">6</button>
-    <button id="-" class="operazioni" onclick="minus()">-</button>
-    <button id="uno" class="cifra" onclick="pulsante(this)">1</button>
-    <button id="due" class="cifra" onclick="pulsante(this)">2</button>
-    <button id="tre" class="cifra" onclick="pulsante(this)">3</button>
-    <button id="+" class="operazioni" onclick="plus()">+</button>
-    <button id="zero" class="cifra" onclick="pulsante(this)">0</button>
-    <button id="virgola" class="cifra" onclick="virgola()">.</button>
-    <button id="uguale" class="operazioni" onclick="uguale()">=</button>
+    <div id="risultato" class="elemento">0</div>
+    <button id="cancella" class="operazione elemento" onclick="ac()">AC</botton>
+    <button id="frazione" class="operazione elemento" onclick="piumeno()">+/-</botton>
+    <button id="percentuale" class="operazione elemento" onclick="percentuale()">%</botton>
+    <button id="divisione" class="operazioni elemento" onclick="divide()">/</button>
+    <button id="sette" class="cifra elemento" onclick="pulsante(this)">7</button>
+    <button id="otto" class="cifra elemento" onclick="pulsante(this)">8</button>
+    <button id="nove" class="cifra elemento" onclick="pulsante(this)">9</button>
+    <button id="*" class="operazioni elemento" onclick="times()">*</button>
+    <button id="quattro" class="cifra elemento" onclick="pulsante(this)">4</button>
+    <button id="cinque" class="cifra elemento" onclick= "pulsante(this)">5</button>
+    <button id="sei" class="cifra elemento" onclick="pulsante(this)">6</button>
+    <button id="-" class="operazioni elemento" onclick="minus()">-</button>
+    <button id="uno" class="cifra elemento" onclick="pulsante(this)">1</button>
+    <button id="due" class="cifra elemento" onclick="pulsante(this)">2</button>
+    <button id="tre" class="cifra elemento" onclick="pulsante(this)">3</button>
+    <button id="+" class="operazioni elemento" onclick="plus()">+</button>
+    <button id="zero" class="cifra elemento" onclick="pulsante(this)">0</button>
+    <button id="virgola" class="cifra elemento" onclick="virgola()">.</button>
+    <button id="uguale" class="operazioni elemento" onclick="uguale()">=</button>
     <div style="clear: left;"></div>  
 </div>
 
@@ -84,12 +82,12 @@ button.operazione {
     var risultato= document.getElementById("risultato");
     
 
-function pulsante(cifra){
+function pulsante(cifra elemento){
     if (nuovo_numero) {
-        risultato.innerHTML=cifra.innerHTML
+        risultato.innerHTML=cifra elemento.innerHTML
         nuovo_numero=false
   } else {
-    risultato.innerHTML += cifra.innerHTML
+    risultato.innerHTML += cifra elemento.innerHTML
     
   }
   
