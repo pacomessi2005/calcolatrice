@@ -2,53 +2,45 @@
 <style>
 
 #calcolatrice {
-    width:200px;
+    width: 100vw; 
+    height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
+}
+
+button {
+    float: left;
+    width: 25%;
+    height: 25%;
 }
 
 button.cifra {
-
-float: left;
-width: 25%;
-background-color: black;
-color: blanchedalmond;
+    background-color: black;
+    color: blanchedalmond;
 }
 
 #zero {
-width: 50%;
-
+    width: 50%;
 }
 
 button.operazioni {
-
-background-color: orangered;
-  
-float: left;
-width: 25%;
+    background-color: orangered;
 }
 
 button.operazione {
-
-background-color: gray;
-float: left;
-width: 25%;
+    background-color: gray;
 }
 
 #risultato {
-
-background-color: white;
-float: left;
-width: 100%;
-height: 20px;
-text-align: right;
-color: black;
+    background-color: white;
+    float: left;
+    width: 100%;
+    height: 25%;
+    text-align: right;
+    color: black;
 }
 
 
 
 </style>
-
-
-
 
 <div id="calcolatrice">
     <div id="risultato">0</div>
@@ -71,8 +63,7 @@ color: black;
     <button id="zero" class="cifra" onclick="pulsante(this)">0</button>
     <button id="virgola" class="cifra" onclick="virgola()">.</button>
     <button id="uguale" class="operazioni" onclick="uguale()">=</button>
-    <div style="clear: left;"></div>
-    
+    <div style="clear: left;"></div>  
 </div>
 
 
@@ -85,7 +76,6 @@ color: black;
     
 
 function pulsante(cifra){
-   
     if (nuovo_numero) {
         risultato.innerHTML=cifra.innerHTML
         nuovo_numero=false
@@ -97,7 +87,6 @@ function pulsante(cifra){
 }
 
 function ac(){
-
     risultato.innerHTML="0"
     nuovo_numero=true 
     memoria=null
