@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <style>
 
+h1 span {
+    font-size:12px;
+    color: red;
+}
+
 #calcolatrice {
     width: 100vw; 
     height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
@@ -10,6 +15,7 @@ button {
     float: left;
     width: 25%;
     height: 25%;
+    font-size:1em;
 }
 
 button.cifra {
@@ -36,11 +42,14 @@ button.operazione {
     height: 25%;
     text-align: right;
     color: black;
+    font-size: 1em;
 }
 
 
 
 </style>
+
+<h1>Calcolatrice <span>by Francesco</span></h1>
 
 <div id="calcolatrice">
     <div id="risultato">0</div>
